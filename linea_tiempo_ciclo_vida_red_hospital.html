@@ -1,0 +1,175 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .lt-wrap { padding: 1rem 0; font-family: var(--font-sans, sans-serif); }
+  .lt-titulo { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+  .lt-sub { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 24px; }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 110px;
+    top: 0; bottom: 0;
+    width: 0.5px;
+    background: var(--color-border-tertiary);
+  }
+  .fase {
+    display: grid;
+    grid-template-columns: 100px 24px 1fr;
+    gap: 0 16px;
+    margin-bottom: 20px;
+    align-items: start;
+  }
+  .fase-label {
+    text-align: right;
+    padding-top: 2px;
+  }
+  .fase-mes { font-size: 11px; font-weight: 500; color: var(--color-text-primary); }
+  .fase-dur { font-size: 10px; color: var(--color-text-tertiary); }
+  .fase-dot {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 500;
+    margin-top: 1px; flex-shrink: 0;
+    position: relative; z-index: 1;
+  }
+  .fase-content {
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: 8px;
+    padding: 10px 12px;
+    background: var(--color-background-secondary);
+  }
+  .fase-nombre { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+  .fase-hospital { font-size: 11px; color: var(--color-text-secondary); line-height: 1.6; }
+  .fase-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .fase-tag { font-size: 10px; padding: 2px 8px; border-radius: 20px; border: 0.5px solid var(--color-border-tertiary); color: var(--color-text-tertiary); }
+
+  .c1 .fase-dot { background: #EAF3DE; color: #3B6D11; }
+  .c2 .fase-dot { background: #E6F1FB; color: #185FA5; }
+  .c3 .fase-dot { background: #EEEDFE; color: #534AB7; }
+  .c4 .fase-dot { background: #E1F5EE; color: #0F6E56; }
+  .c5 .fase-dot { background: #FAEEDA; color: #854F0B; }
+  .c6 .fase-dot { background: #FAECE7; color: #993C1D; }
+  @media (prefers-color-scheme: dark) {
+    .c1 .fase-dot { background: #173404; color: #C0DD97; }
+    .c2 .fase-dot { background: #042C53; color: #B5D4F4; }
+    .c3 .fase-dot { background: #26215C; color: #CECBF6; }
+    .c4 .fase-dot { background: #04342C; color: #9FE1CB; }
+    .c5 .fase-dot { background: #412402; color: #FAC775; }
+    .c6 .fase-dot { background: #4A1B0C; color: #F5C4B3; }
+  }
+</style>
+
+<div class="lt-wrap">
+  <div class="lt-titulo">Ciclo de vida de la red — Hospital General de Salud</div>
+  <div class="lt-sub">Aplicación de las 6 fases del ciclo de vida de redes telemáticas al diseño del sistema hospitalario en IPv6</div>
+
+  <div class="timeline">
+
+    <div class="fase c1">
+      <div class="fase-label">
+        <div class="fase-mes">Mes 1–2</div>
+        <div class="fase-dur">8 semanas</div>
+      </div>
+      <div class="fase-dot">1</div>
+      <div class="fase-content">
+        <div class="fase-nombre">Planificación</div>
+        <div class="fase-hospital">Análisis de necesidades del Hospital General de Salud: inventario de dispositivos médicos conectados, estimación de carga de datos (HCE, telemedicina, IoT), estudio de viabilidad para migración a IPv6, definición del presupuesto y cronograma del proyecto.</div>
+        <div class="fase-tags">
+          <span class="fase-tag">Análisis de requerimientos</span>
+          <span class="fase-tag">Viabilidad IPv6</span>
+          <span class="fase-tag">Inventario de dispositivos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase c2">
+      <div class="fase-label">
+        <div class="fase-mes">Mes 3–4</div>
+        <div class="fase-dur">8 semanas</div>
+      </div>
+      <div class="fase-dot">2</div>
+      <div class="fase-content">
+        <div class="fase-nombre">Diseño</div>
+        <div class="fase-hospital">Diseño de la topología con 6 subredes IPv6 diferenciadas: servidor web (HCE), red inalámbrica, servidor de correo, consultorios médicos, sede principal y enlace de telemedicina. Definición del plan de direccionamiento IPv6, políticas de seguridad y QoS por tipo de tráfico (clínico vs. administrativo).</div>
+        <div class="fase-tags">
+          <span class="fase-tag">Topología IPv6</span>
+          <span class="fase-tag">6 subredes</span>
+          <span class="fase-tag">Segmentación de tráfico</span>
+          <span class="fase-tag">Packet Tracer</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase c3">
+      <div class="fase-label">
+        <div class="fase-mes">Mes 5–7</div>
+        <div class="fase-dur">12 semanas</div>
+      </div>
+      <div class="fase-dot">3</div>
+      <div class="fase-content">
+        <div class="fase-nombre">Implementación</div>
+        <div class="fase-hospital">Instalación de routers, switches, puntos de acceso Wi-Fi y servidores. Configuración de direcciones IPv6 en todos los dispositivos. Montaje del cableado estructurado Cat6a para la red interna. Configuración de servicios: servidor web (HCE), correo @hospital.com, servidor IoT. Enlace entre sede local y sede principal por router.</div>
+        <div class="fase-tags">
+          <span class="fase-tag">Cableado Cat6a</span>
+          <span class="fase-tag">Configuración IPv6</span>
+          <span class="fase-tag">Servidores web y correo</span>
+          <span class="fase-tag">IoT médico</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase c4">
+      <div class="fase-label">
+        <div class="fase-mes">Mes 8–12</div>
+        <div class="fase-dur">Continuo</div>
+      </div>
+      <div class="fase-dot">4</div>
+      <div class="fase-content">
+        <div class="fase-nombre">Operación</div>
+        <div class="fase-hospital">Funcionamiento diario de todos los servicios hospitalarios sobre IPv6. Monitoreo del rendimiento de las 6 subredes, gestión de usuarios médicos y administrativos, soporte de telemedicina entre sede local y especialistas. Control de acceso según las 5 políticas de seguridad definidas.</div>
+        <div class="fase-tags">
+          <span class="fase-tag">Monitoreo continuo</span>
+          <span class="fase-tag">Telemedicina activa</span>
+          <span class="fase-tag">Gestión de usuarios</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase c5">
+      <div class="fase-label">
+        <div class="fase-mes">Año 2+</div>
+        <div class="fase-dur">Periódico</div>
+      </div>
+      <div class="fase-dot">5</div>
+      <div class="fase-content">
+        <div class="fase-nombre">Mantenimiento</div>
+        <div class="fase-hospital">Actualización de firmware de routers y switches, parches de seguridad en servidores, expansión de capacidad inalámbrica según crecimiento del hospital, revisión y ajuste de las políticas de seguridad, incorporación de nuevos dispositivos IoT médicos a la red.</div>
+        <div class="fase-tags">
+          <span class="fase-tag">Actualizaciones de firmware</span>
+          <span class="fase-tag">Expansión IoT</span>
+          <span class="fase-tag">Revisión de políticas</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase c6">
+      <div class="fase-label">
+        <div class="fase-mes">Año 5+</div>
+        <div class="fase-dur">Planificado</div>
+      </div>
+      <div class="fase-dot">6</div>
+      <div class="fase-content">
+        <div class="fase-nombre">Retiro y migración</div>
+        <div class="fase-hospital">Evaluación de nuevas tecnologías (6G, Wi-Fi 7, redes neuronales de acceso). Migración progresiva de equipos obsoletos, conservación de historial de datos clínicos en nuevos sistemas, disposición responsable del hardware según normativas ambientales vigentes.</div>
+        <div class="fase-tags">
+          <span class="fase-tag">Migración tecnológica</span>
+          <span class="fase-tag">Preservación de datos HCE</span>
+          <span class="fase-tag">Disposición de hardware</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
